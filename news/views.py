@@ -11,6 +11,7 @@ class NewsListView(ListView):
 	model = News
 	template_name = 'news.html'
 	paginate_by = 5
+	ordering = ['-published_at']
 
 class HomePageView(TemplateView):
 	template_name = 'index.html'
