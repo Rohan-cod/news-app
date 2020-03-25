@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Job Postings{% endblock title %}
+
+{% block content %}
+  <h1>Django News App</h1>
+  <hr>
+  <br>
+  <h2>Latest News</h2>
+
+  {% for news in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'news_detail' news.pk %}"><i class="fa fa-file"></i> </a><span class="font-weight-bold">{{ news.title }}</span>  &middot;
+        <br>
+         <p><i class="fa fa-user"></i> {{ news.source }}&nbsp;|&nbsp;<i class="fa fa-calendar"></i> {{ news.published_at }}</p>
+      </div> 
+    </div>
+    <br />
+
+    
+  {% endfor %}
+
+  {% if is_paginated %}
+    <nav aria-label="Page navigation conatiner"></nav>
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+      {% endif %}
+    </ul>
+    </nav>
+  {% endif %}
+  
+{% endblock content %}
+
