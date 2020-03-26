@@ -5,7 +5,7 @@ from news.models import News
 class Command(BaseCommand):
 	help = "collect top headlines from newsapi"
 	def handle(self, *args, **options):
-		newsapi = NewsApiClient(api_key='3f8e6fbc9b2a45379023c71f61ec354a')
+		newsapi = NewsApiClient(api_key='')
 		top_headlines = newsapi.get_top_headlines(language='en', country='in')
 		if top_headlines['status'] == "ok":
 			for article in top_headlines['articles']:
