@@ -10,7 +10,7 @@
   <p>{{ object.desciption }}
   <br>
   <br>
-  <img src="{{ object.url_to_image }}" alt="No Image">
+  <img class="box" src="{{ object.url_to_image }}" alt="No Image">
   <br>
   <h2>Content</h2>
   <p>{{ object.content }}
@@ -25,15 +25,19 @@
 </div>
 
 <style type="text/css">
-    img { 
+    .box { 
     animation: fadeInAnimation ease 3s 
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
     width:300px;
     height:300px;
     } 
-
-    
+    .box:hover
+    {
+      -moz-box-shadow: 0 0 40px #ccc;
+      -webkit-box-shadow: 0 0 40px #ccc;
+      box-shadow: 0 0 40px #ccc;
+    }
       
     @keyframes fadeInAnimation { 
         0% { 
